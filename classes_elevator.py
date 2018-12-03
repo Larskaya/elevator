@@ -1,9 +1,5 @@
 import time 
 
-class House:
-    def __init__(self):
-        self.how_many_floors=5
-
 class Elevator:
     def __init__(self,labels,how_many_floors, tk):
         self.where_elevator=0
@@ -18,8 +14,9 @@ class Elevator:
         self.labels[self.where_elevator]['text']=str('[ '+('x' * self.count_passengers)+' ]')
         print('get',self.labels[self.where_elevator]['text'])
 
-    def elevator_goto(self,passenger_floor,target_floor):
-        print('passenger floor:',passenger_floor)
+    def elevator_goto(self, passenger_floor, target_floor):
+
+        print('passenger floor:',passenger_floor, target_floor)
         self.go_to_floor(int(passenger_floor)-1)
         self.count_passengers=2
         self.go_to_floor(int(target_floor)-1)
@@ -51,9 +48,11 @@ class Passenger:
 
     def call(self):
         self.elevator.elevator_goto(self.where_am_i,self.where_i_want)
-        
 
-         
+class House:
+    def __init__(self, floors_number):
+        self.how_many_floors=floors_number
+
 
 
 
